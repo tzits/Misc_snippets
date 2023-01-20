@@ -12,26 +12,22 @@ function csvRemoveNumericPrefixesFromHeaders() {
   if (sheet) {
     let range = sheet.getRange(1, 1, 1, sheet.getLastColumn());
     const values = range.getValues();
-    for (let row in values) {
-      for (let col in values[row]) {
-        const matches = /^(\d+[^A-Za-z0-9])(.*)$/.exec(values[row][col]);
+      for (let col in values[0]) {
+        const matches = /^(\d+[^A-Za-z0-9])(.*)$/.exec(values[0][col]);
         if (matches) {
-          const cellRow = parseInt(row) + 1;
+          const cellRow = 1;
           const cellCol = parseInt(col) + 1;
           const cell = sheet.getRange(cellRow, cellCol);
           cell.setValue(matches[2]);
           Logger.log(`Removed "${matches[1]}" prefix from cell ${cellRow}:${cellCol}`);
         }
       }
-    }
     //range of columns where header need to be changed
     range = sheet.getRange(1,49,1,69)
     range.setValues(containerArray)
   }
 
 }
-
-//I'm not responsible for the nested for loops, may come back and clean that up
 
 //array of values new headers should be
 
