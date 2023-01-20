@@ -1,2 +1,2 @@
-# Misc_snippets
-misc snippets 
+# Misc Snippets
+storage of misc code snippets for various applications
