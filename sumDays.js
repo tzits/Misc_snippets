@@ -13,14 +13,11 @@ function myFunction() {
     // order is row#, column #, # of rows, # of columns
     let cell = sheet.getRange(3,4,1,1)
     let cellVal = cell.getValue()
-    console.log(cell)
-    let total
-    for (let i = 1; i < cellVal + 1; i++) {
-        total += i
-    }
+    // for exponents in google scripts use Math.pow(x,n)
+    let total = (Math.pow(cellVal,2) + cellVal)/2
     let range = sheet.getRange(3,2,1,2)
-    //each outer array is a row, inner array is values of columns
-    //# of values and format must match range
+    // each outer array is a row, inner array is values of columns
+    // # of values and format must match range
     range.setValues([[total,total]])
   }
 }
