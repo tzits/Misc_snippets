@@ -26,7 +26,8 @@ function csvRemoveNumericPrefixesFromHeaders() {
     // params are start row, start column, number of rows, number of columns
     range = sheet.getRange(1,49,1,69)
     
-    //matrix to replace must exactly match dimensions of range, thus needs to be an array or arrays, with each array representing a row
+    //matrix to replace must exactly match dimensions of range, thus needs to be an array or arrays, with each inner array representing a row 
+    //and each value within the array representing the value of the cell
     range.setValues(containerArray)
   }
 
